@@ -24,30 +24,39 @@ Things you may want to cover:
 * ...
 ## users テーブル
 
-| Column     | Type   | Options  |
-| ---------- | ------ | -------- | 
-| email      | string | NOT NULL |
-| password   | string | NOT NULL |
-| name       | string | NOT NULL |
-| profile    | text   | NOT NULL |
-| occupation | text   | NOT NULL |
-| position   | text   | NOT NULL |
+| Column             | Type   | Options  |
+| ------------------ | ------ | -------- | 
+| email              | string | NOT NULL |
+| password           | string | NOT NULL |
 
-## prototype テーブル
 
-| Column     | Type               | Options     |
-| ---------- | ------------------ | ----------- |
-| title      | string             | NOT NULL    |
-| catch_copy | text               | NOT NULL    |
-| concept    | text: false        | NOT NULL    |
-| image      | ActiveStorageで実装 |             |
-| user       | references         |             |
 
-## comments テーブル
+## profile テーブル
 
-| Column    | Type      | Options     |
-| --------- | --------  | ------------|
-| text      | text      | NOT NULL    |
-| user      | reference |             |
-| prototype | reference |             |
+| Column                | Type  |Options 
+| ----------------------| ------| ------ 
+| nickname              | string| NOT NULL| 
+| email                 | string| NOT NULL|               
+| password              | string| NOT NULL|         
+| confirmation_password | string| NOT NULL|          
+| family_name           | string| NOT NULL|           
+| personal_name         | string| NOT NULL|  
+| family_name_kana      | string| NOT NULL|  
+| personal_name_kana    | string| NOT NULL|  
+| Birth Year            | string| NOT NULL|  
+| month of birth        | string| NOT NULL|  
+| date of birth         | string| NOT NULL|  
+## product テーブル
+
+| Column           | Type   | Options |
+| -----------------| -------|---------| 
+| file selection   | string | NOT NULL|
+| title            | string | NOT NULL|
+| Description      | text   | NOT NULL|   
+| Details_Category | string | NOT NULL| 
+| Details_ Status  | string | NOT NULL|                      
+| delivery_burden  | string | NOT NULL| 
+| delivery_area    | string | NOT NULL| 
+| delivery_Dsy     | date   | NOT NULL| 
+| Selling price    | integer| NOT NULL| 
 

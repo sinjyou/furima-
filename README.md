@@ -24,39 +24,62 @@ Things you may want to cover:
 * ...
 ## users テーブル
 
-| Column             | Type   | Options  |
-| ------------------ | ------ | -------- | 
-| email              | string | NOT NULL |
-| password           | string | NOT NULL |
 
-
-
-## profile テーブル
-
+NOT NUL
 | Column                | Type  |Options 
 | ----------------------| ------| ------ 
-| nickname              | string| NOT NULL| 
-| email                 | string| NOT NULL|               
-| password              | string| NOT NULL|         
-| confirmation_password | string| NOT NULL|          
-| family_name           | string| NOT NULL|           
-| personal_name         | string| NOT NULL|  
-| family_name_kana      | string| NOT NULL|  
-| personal_name_kana    | string| NOT NULL|  
-| Birth Year            | string| NOT NULL|  
-| month of birth        | string| NOT NULL|  
-| date of birth         | string| NOT NULL|  
+| nickname              | string| nul:false | 
+| email                 | string| nul:false,unique:true|           
+| password              | string| nul:false|         
+| confirmation_password | string| nul:false|          
+| family_name           | string| nul:false|           
+| personal_name         | string| nul:false|  
+| family_name_kana      | string| nul:false|  
+| personal_name_kana    | string| nul:false|  
+| Birthday              | date| NOT NULL|  
+
+Association
+・belongs＿to_hash :Birthday
+・belongs＿to_hash :prefecture
+・has_many :products
+・has_many :Purchase
+
 ## product テーブル
 
 | Column           | Type   | Options |
 | -----------------| -------|---------| 
-| file selection   | string | NOT NULL|
-| title            | string | NOT NULL|
-| Description      | text   | NOT NULL|   
-| Details_Category | string | NOT NULL| 
-| Details_ Status  | string | NOT NULL|                      
-| delivery_burden  | string | NOT NULL| 
-| delivery_area    | string | NOT NULL| 
-| delivery_Dsy     | date   | NOT NULL| 
-| Selling price    | integer| NOT NULL| 
+| file selection   | string | nul:false|
+| title            | string | nul:false|
+| explain          | text   | nul:false|   
+| Category         | string | nul:false| 
+| Status           | string | nul:false|                      
+| postage          | string | nul:false| 
+| prefecture       | string | nul:false| 
+| delivery_Dsy     | date   | nul:false| 
+| Selling price    | integer| nul:false| 
+
+Association
+
+・belongs_to_active_hash :category
+・belongs_to_active_hash :status
+・belongs_to_active_hash :delivery_days
+・belongs_to :user
+・add＿index products,:name
+## Purchase テーブル
+
+| Column           | Type   | Options |
+| -----------------| -------|---------| 
+| zop_code1   　　　| string | nul:false|
+| prefecture_id    | string | nul:false|
+| city          　　| text   | nul:false|   
+| address1         | string | nul:false| 
+| address2         | string | nul:false|                      
+| postage          | string | nul:false| 
+| prefecture       | string | nul:false| 
+| delivery_Dsy     | date   | nul:false| 
+| Selling price    | integer| nul:false| 
+| phone            | integer| nil:false|
+
+Association
+・belongs to:user
 
